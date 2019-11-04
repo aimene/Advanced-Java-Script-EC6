@@ -17,10 +17,10 @@ function onInterface(event) {
 
   switch (event.target.value) {
     case '+':  
-        emetteurLocal.emit('inclinaison','1');
+        emetteurLocal.emit('inclinaison',1);
       break;
     case '-':
-        emetteurLocal.emit('inclinaison','-1');
+        emetteurLocal.emit('inclinaison',-1);
       break;
     default:
      break;

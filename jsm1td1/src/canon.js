@@ -13,22 +13,21 @@ export default class Canon{
     }
 
     leve(){
-        if(this._inclinaison+this._paramInclinaison.delta< this._paramInclinaison.max){
-            this.inclinaison+=this._paramInclinaison.delta;
+        if(this._inclinaison+this._paramInclinaison.delta<= this._paramInclinaison.max){
+            this._inclinaison+=this._paramInclinaison.delta;
             return true;
         }
         return false;
     }
 
     baisse(){
-        if(this._inclinaison-this._paramInclinaison.delta> this._paramInclinaison.min){
-            this.inclinaison+=this._paramInclinaison.delta;
+        if((this._inclinaison-this._paramInclinaison.delta) >= this._paramInclinaison.min){
+            this._inclinaison-=this._paramInclinaison.delta;
             return true;
         }
         return false;
     }
     
-
     portee(){
         return ( Math.pow( this._vitesseSortie , 2)/ 9.81 );
     }

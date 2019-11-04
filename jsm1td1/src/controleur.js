@@ -5,12 +5,16 @@ import * as modele from './modele.js';
 function onLoad() {
   vue.displayCanon(modele.canonState());
 }
+function canonChange(canonState){
+   vue.displayCanon(canonState);
+}
 
 function InclinaisonChange(val) {
-  if (val=-1) {
+
+  if (val==-1) {
     modele.baisseCanon();
   }
-  if (val=1) {
+  if (val==1) {
     modele.leveCanon();
   }
   
@@ -25,4 +29,4 @@ window.addEventListener("load", onLoad, false);
 window.addEventListener("unload", onUnload, false);
 
 
-export {InclinaisonChange};
+export {InclinaisonChange,canonChange};

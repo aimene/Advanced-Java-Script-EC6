@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tir au canon</title>
+  <style type="text/css">
+  cache { display: none }
+  </style>
+</head>
+<body>
+<h1>Tir au canon</h1>
+<div id="interface">
+  <p>Cible à <span id="distance-cible"></span> m</p>
+  <p>Vitesse <span id="vitesse-cible"></span> m/s</p>
+  <p>Canon : inclinaison <span id="inclinaison-canon"></span> degrés
+  <input id="augmenter" type="button" value="+">
+  <input id="diminuer" type="button" value="-"></p>
+  <p><input id ="tirer" type="button" value="Tirer"></p>
+</div>
+<div id="resultat-tir">
+  <p>Boulet tombé à <span id="longueur-tir"></span> m</p>
+  <p id="resultat-tir"></p>
+  <p><input id="continuer" type="button" value="Continuer">
+  <input id="abandonner" type="button" value="Abandonner"></p>
+</div>
+<div id="resultat-partie">
+  <p></p>
+  <p><input id="nouveau" type="button" value="Nouvelle Partie"></p>
+</div>
+
+<script type="module" src="../src/controleur.js">
+  
+</script>
+</body>
+</html>

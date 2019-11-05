@@ -1,0 +1,36 @@
+body {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: orange;
+}
+
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: orange;
+  border-left: 3px solid orange;
+  padding-left: 10px;
+}
+
+div.h2content {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+p {
+  text-align: justify;
+  text-indent: 1em;
+}
+
+p.noind {
+  text-indent: 0em;
+}
+
+
+/*
+a {
+    text-decoration: none;
+} 
+ */

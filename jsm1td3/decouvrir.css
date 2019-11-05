@@ -1,0 +1,7 @@
+.item-header:hover+.item-content{
+  display: block ;
+}
+
+.item-content{
+    display: block;
+}

@@ -6,15 +6,22 @@ const emetteurLocal = new EventEmitteur();
 
 function onLoad() {
   addListener('inclinaison',inclinaisonChange);
+  addListener('tire',inclinaisonChange);
+
   document.getElementById('interface').addEventListener("click", onInterface, false);
+  document.getElementById('tirer').addEventListener("click", onTire, false);
+
 }
 
 function inclinaisonChange(val) {
   controleur.InclinaisonChange(val);
 }
 
+
+
 function onInterface(event) {
 
+console.log(event.target);
   switch (event.target.value) {
     case '+':  
         emetteurLocal.emit('inclinaison',1);
@@ -26,6 +33,11 @@ function onInterface(event) {
      break;
   }
 }
+function onTire(event) {
+  console.log(event.target);
+    
+  controleur.canonTireModele();
+  }
 
 
 function displayCanon(CanonState) {
@@ -33,11 +45,15 @@ function displayCanon(CanonState) {
   document.getElementById('vitesse-cible').textContent=CanonState.vitesse;
 }
 
+function displayDistance(distance) {
+  document.getElementById('longueur-tir').textContent=distance;
+}
+
 function onUnload() {
   window.removeEventListener("load", onLoad, false);
   window.removeEventListener("unload", onUnload, false);
 
-  removeListener('inclinaison',() => {});
+  removeListener('inclinaison',inclinaisonChange);
   document.getElementById('interface').removeEventListener("click", onInterface, false);
 }
 
@@ -54,5 +70,5 @@ function removeListener(eventName, listener) {
 }
 
 
-export { addListener, removeListener,displayCanon
+export { addListener, removeListener,displayCanon,displayDistance
 };

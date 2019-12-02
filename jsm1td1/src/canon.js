@@ -29,11 +29,11 @@ export default class Canon{
     }
     
     portee(){
-        return ( Math.pow( this._vitesseSortie , 2)/ 9.81 );
+        return ( Math.pow(this._vitesseSortie , 2)/ 9.81 );
     }
 
     tir() {
-        return(  Math.pow(this._vitesseSortie,2)* Math.sin(2*this._inclinaison)/9.81);
+        return(  Math.pow(this._vitesseSortie,2)* Math.sin(2*this._inclinaison)/ 9.81);
     }
 
     state(){

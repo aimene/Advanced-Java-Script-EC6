@@ -6,7 +6,15 @@ function onLoad() {
   vue.displayCanon(modele.canonState());
 }
 function canonChange(canonState){
+  
    vue.displayCanon(canonState);
+}
+function canonTireVue(distance) {
+  vue.displayDistance(distance);
+}
+
+function canonTireModele(distance) {
+modele.tireCanon();
 }
 
 function InclinaisonChange(val) {
@@ -29,4 +37,4 @@ window.addEventListener("load", onLoad, false);
 window.addEventListener("unload", onUnload, false);
 
 
-export {InclinaisonChange,canonChange};
+export {InclinaisonChange,canonChange,canonTireVue,canonTireModele};

@@ -1,0 +1,47 @@
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 14px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-family: sans-serif;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #40A040;
+}
+
+.quit {
+  float:right;
+  font-size: 20px;
+}
+
+ul.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #4CAF50;
+}
+
+ul.horiz > li{
+  float: left;
+}
+
+/*
+input[type="file"] {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+input[type="file"]:focus + label {
+  outline: thin dotted;
+}
+*/

@@ -1,9 +1,12 @@
-//const color = new Array();
-let temperaturesChart = null;
+import * as temp from './temperatures.js'
+const temperaturesChart = null;
+var colors = new Array();
+const table = document.getElementById('tempvilles');
 
-function displayTemperaturesChart(t) {
-
-
+function displayTemperaturesChart() {
+    let ctx = document.getElementById('temp-canvas').getContext('2d');
+     colors = newColors(temp.temperaturesFromTable(table).temperatures.length);
+    temperaturesChart=temp.temperaturesChartFrom(temp.temperaturesFromTable(table).temperatures,ctx,colors);
 }
 
 

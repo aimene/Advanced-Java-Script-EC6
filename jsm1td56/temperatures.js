@@ -1,8 +1,8 @@
 import * as view from './view.js'
 
-const ctx = document.getElementById('temp-canvas').getContext('2d');
-const table = document.getElementById('tempvilles');
 
+const table = document.getElementById('tempvilles');
+var t = view.temperaturesOfPage(table);
 function temperaturesDatasetsFrom(temperatures , colors) {
 
    let obj = new Array();
@@ -54,11 +54,6 @@ function temperaturesFromTable(table) {
 }
 
 
+view.displayTemperaturesChart();
 
-
-
-
-view.displayTemperaturesChart(temperaturesChartFrom(temperaturesFromTable(table).temperatures,ctx,view.newColors(8)));
-
-
-export { temperaturesFromTable}
+export { temperaturesFromTable,temperaturesChartFrom}

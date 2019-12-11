@@ -29,22 +29,25 @@
       font-style: oblique;
     }
 
-    /*
-#temp {
-	text-align:center;
-}
-*/
+
+    #temp-file {
+      text-align: center;
+      display: none;
+    }
   </style>
   <link rel="stylesheet" href="button.css">
+  <link rel="stylesheet" href="dialog.css">
+  <script src="Chart.js"></script>
+
 </head>
 
 <body>
   <div id="main">
     <nav id="menu">
       <ul class="menu horiz">
-        <li><span class="button">Charger</span></li>
-        <li><span class="button">Sauver</span></a></li>
-        <li><span class="button">Diagramme</span></li>
+        <li><label class="button">Charger<input type="file" id="temp-file" accept="application/json"></label></li>
+        <li><span class="button" id="sauver">Sauver</span></a></li>
+        <li><span class="button" id="diagram" data-target="dialog-afficher">Diagramme</span></li>
       </ul>
     </nav>
     <section>
@@ -57,29 +60,30 @@
   <div id="dialog-afficher" class="modal">
     <div class="modal-content">
       <p>
-        <span class="button quit">&times;</span>
+       <div id="close"><span class="button quit" >&times;</span></div> 
         <canvas id="temp-canvas" width="600" height="450" aria-label="Températures" role="img">
         </canvas>
       </p>
     </div>
   </div>
 
-  <script type="module"  src="./temperatures.js">
-  
- 
+  <script type="module" src="./temperatures.js">
+
+
   </script>
   <script type="module" src="./view.js">
-    
-  
+
+
   </script>
-  <script type="module" src="./tempfrance.js"></script>
+  <script type="module" src="./controller.js"></script>
+  <script type="" src="./FileSaver.min.js"></script>
+
   <script type="module">
     import * as view from './view.js';
     import * as temp from './temperatures.js';
-    import * as c from './tempfrance.js';
 
-  
-    view.displayTemperaturesTable('temperature-table',c.obj2);
+
+   // view.displayTemperaturesTable('temperature-table', c.obj2);
   </script>
 
 

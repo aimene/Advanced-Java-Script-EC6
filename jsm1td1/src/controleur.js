@@ -5,8 +5,8 @@ import * as modele from './modele.js';
 function onLoad() {
   vue.displayCanon(modele.canonState());
 }
+
 function canonChange(canonState){
-  
    vue.displayCanon(canonState);
 }
 function canonTireVue(distance) {

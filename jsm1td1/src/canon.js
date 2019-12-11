@@ -2,6 +2,7 @@
 'use strict';
 
 export default class Canon{
+    
     constructor( vitesseSortie, paramInclinaison ){
         this._vitesseSortie=vitesseSortie;
         this._paramInclinaison=paramInclinaison;

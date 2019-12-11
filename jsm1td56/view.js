@@ -2,6 +2,7 @@ import * as temp from './temperatures.js'
 var temperaturesChart = null;
 var colors = new Array();
 
+// Affichage des températures
 function displayTemperaturesTable(tableID,obj) {
     let div = document.getElementById(tableID);
     let table = temp.temperaturesHTMLTable(obj);
@@ -15,7 +16,7 @@ function displayTemperaturesChart() {
     colorizeTable('tempvilles',colors);
 }
 
-
+// Amélioration de la table
 function colorizeTable(tableID, colors) {
     let table = document.getElementById(tableID);
     let tBody = table.getElementsByTagName('tbody')[0];
@@ -27,10 +28,8 @@ function colorizeTable(tableID, colors) {
     }
 }
 
-
-
 function newColors(n) {
-    let colorsTemp = new Array();
+    let colorsTemp = [];
     let H ;
     let S  = 97; 
     let L = 42 ;
@@ -41,17 +40,15 @@ function newColors(n) {
     return colorsTemp;
 }
 
-
+// Tableau des données
 function temperaturesOfPage() { 
     const table = document.getElementById('tempvilles');
-    console.log(table);
     let description = getDescription(table);
     let months = getMonths(table);
     let temps = getLocationTemperaturesObject(table);
     let Object = {'description' :description,'months' : months, 'temperatures': temps};
     return Object;
 }
-
 
 function getDescription(table) {     
     let description = table.caption.textContent;

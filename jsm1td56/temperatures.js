@@ -1,12 +1,14 @@
 import * as view from './view.js'
 
+
+// Affichage des températures
 function temperaturesHTMLTable(temperaturesOBJ) {
    let HTML ;
-   HTML='<table>';
+   HTML='<table  id="tempvilles">';
    HTML+='<caption>'+temperaturesOBJ.description+'</caption>';
    HTML+='<thead><tr><td></td>';
    for (const month of temperaturesOBJ.months) {
-      HTML+='<th>'+month+'</th>'
+      HTML+='<th>'+month+'</th>';
    }
    HTML+='</tr></thead>';
    HTML+='<tbody>';
@@ -16,10 +18,9 @@ function temperaturesHTMLTable(temperaturesOBJ) {
    }
    HTML+='</tbody>';
    HTML+='</table>';
-   console.log(HTML);
    return HTML;
 }
-
+// Affichage des températures
 function temperaturesHTMLTR(temp) {
    let tr ;
    tr ='<tr><th>'+temp.location +'</th>'
@@ -30,7 +31,7 @@ function temperaturesHTMLTR(temp) {
    return tr;
 }
 
-
+// Tracé du diagramme
 function temperaturesDatasetsFrom(temperatures , colors) {
    let obj = new Array();
    let label ;
@@ -46,7 +47,7 @@ function temperaturesDatasetsFrom(temperatures , colors) {
    }
    return obj ;  
 }
-
+// Tracé du diagramme
 function temperaturesChartFrom(t, ctx, col) {
    let dataSet = temperaturesDatasetsFrom( t , col);
    let myChart = new Chart(ctx, {
@@ -64,7 +65,7 @@ function temperaturesChartFrom(t, ctx, col) {
        return myChart;
 }
 
-
+// Tableau des données
 function temperaturesFromTable(table) { 
    let obj = view.temperaturesOfPage(table);
    return obj ; 

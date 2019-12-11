@@ -1,19 +1,42 @@
 import * as view from './view.js'
 
+function temperaturesHTMLTable(temperaturesOBJ) {
+   let HTML ;
+   HTML='<table>';
+   HTML+='<caption>'+temperaturesOBJ.description+'</caption>';
+   HTML+='<thead><tr><td></td>';
+   for (const month of temperaturesOBJ.months) {
+      HTML+='<th>'+month+'</th>'
+   }
+   HTML+='</tr></thead>';
+   HTML+='<tbody>';
+   let tempArray = temperaturesOBJ.temperatures;
+   for (const temp of tempArray) {
+     HTML+= temperaturesHTMLTR(temp);
+   }
+   HTML+='</tbody>';
+   HTML+='</table>';
+   console.log(HTML);
+   return HTML;
+}
 
-const table = document.getElementById('tempvilles');
-var t = view.temperaturesOfPage(table);
+function temperaturesHTMLTR(temp) {
+   let tr ;
+   tr ='<tr><th>'+temp.location +'</th>'
+   for (const tempVille of temp.temperatures) {
+      tr+= '<td>'+tempVille+'</td>';
+   }
+   tr+='</tr>'
+   return tr;
+}
+
+
 function temperaturesDatasetsFrom(temperatures , colors) {
-
    let obj = new Array();
-   
    let label ;
    let data = new Array();;
    let borderColor ;
    let cpt =0 ;
-
-   
-
    for (const temp of temperatures) {
       label = temp.location;
       data = temp.temperatures;
@@ -21,18 +44,15 @@ function temperaturesDatasetsFrom(temperatures , colors) {
       cpt++;
       obj.push({"label" : label, "data": data , "borderColor" : borderColor});
    }
-
-   return obj ;
-   
+   return obj ;  
 }
 
 function temperaturesChartFrom(t, ctx, col) {
-
    let dataSet = temperaturesDatasetsFrom( t , col);
    let myChart = new Chart(ctx, {
        type:"line",
        data:{
-       labels:view.temperaturesOfPage(table).months,
+       labels:view.temperaturesOfPage().months,
        datasets: dataSet
        },
        options:{
@@ -41,19 +61,14 @@ function temperaturesChartFrom(t, ctx, col) {
        responsive: false
        }
        });
-
        return myChart;
 }
 
 
-function temperaturesFromTable(table) {
-    
+function temperaturesFromTable(table) { 
    let obj = view.temperaturesOfPage(table);
-   return obj ;
-    
+   return obj ; 
 }
 
 
-view.displayTemperaturesChart();
-
-export { temperaturesFromTable,temperaturesChartFrom}
+export { temperaturesFromTable,temperaturesChartFrom,temperaturesHTMLTable}

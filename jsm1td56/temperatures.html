@@ -83,7 +83,20 @@ villes françaises :</p>
 <dt>méditerranéen :</dt>
 <dd>assez chaud pendant toute l'année (Marseille, Toulouse)</dd>
 </dl>
-<script type="module" src="temperatures.js"></script>
 
+<script type="module"  src="./temperatures.js">
+  
+ 
+</script>
+<script type="module" src="./view.js">
+  
+
+</script>
+<script type="module">
+  import * as view from './view.js';
+  import * as temp from './temperatures.js';
+
+  view.displayTemperaturesChart();
+</script>
 </body>
 </html>

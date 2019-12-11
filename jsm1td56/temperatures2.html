@@ -1,60 +1,88 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>Températures</title>
   <style>
-  table {
-    border-collapse: collapse;
-    empty-cells: hide;
-    border: none;
-  }
-  td,th {
-    border: 1px solid black;
-	  padding: 5px;
-	  width: 2.5em;
-	  text-align: center;
-  }
-  caption {
-    padding: 5px;
-	  font-weight: bold;
-	  font-size: 125%;
-  }
-  dt {
-    font-style: oblique;
-  }
-/*
+    table {
+      border-collapse: collapse;
+      empty-cells: hide;
+      border: none;
+    }
+
+    td,
+    th {
+      border: 1px solid black;
+      padding: 5px;
+      width: 2.5em;
+      text-align: center;
+    }
+
+    caption {
+      padding: 5px;
+      font-weight: bold;
+      font-size: 125%;
+    }
+
+    dt {
+      font-style: oblique;
+    }
+
+    /*
 #temp {
 	text-align:center;
 }
 */
   </style>
+  <link rel="stylesheet" href="button.css">
 </head>
-<body>
-<div id="main">
-  <nav id="menu">
-    <ul class="menu horiz">
-    <li><span class="button">Charger</span></li>
-    <li><span class="button">Sauver</span></a></li>
-    <li><span class="button">Diagramme</span></li>
-    </ul>
-  </nav>
-  <section>
-    <h1>Températures</h1>
-    <div id="temperature-table">
-    </div>
-  </section>
-</div>
 
-<div id="dialog-afficher" class="modal">
-<div class="modal-content">
-<p>
-  <span class="button quit">&times;</span>
-  <canvas id="temp-canvas"  width="600" height="450" aria-label="Températures" role="img">
-  </canvas>
-</p>
-</div>
-</div>
+<body>
+  <div id="main">
+    <nav id="menu">
+      <ul class="menu horiz">
+        <li><span class="button">Charger</span></li>
+        <li><span class="button">Sauver</span></a></li>
+        <li><span class="button">Diagramme</span></li>
+      </ul>
+    </nav>
+    <section>
+      <h1>Températures</h1>
+      <div id="temperature-table">
+      </div>
+    </section>
+  </div>
+
+  <div id="dialog-afficher" class="modal">
+    <div class="modal-content">
+      <p>
+        <span class="button quit">&times;</span>
+        <canvas id="temp-canvas" width="600" height="450" aria-label="Températures" role="img">
+        </canvas>
+      </p>
+    </div>
+  </div>
+
+  <script type="module"  src="./temperatures.js">
+  
+ 
+  </script>
+  <script type="module" src="./view.js">
+    
+  
+  </script>
+  <script type="module" src="./tempfrance.js"></script>
+  <script type="module">
+    import * as view from './view.js';
+    import * as temp from './temperatures.js';
+    import * as c from './tempfrance.js';
+
+  
+    view.displayTemperaturesTable('temperature-table',c.obj2);
+  </script>
+
 
 </body>
+
 </html>

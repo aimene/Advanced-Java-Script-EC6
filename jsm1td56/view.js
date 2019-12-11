@@ -1,13 +1,32 @@
 import * as temp from './temperatures.js'
-const temperaturesChart = null;
+var temperaturesChart = null;
 var colors = new Array();
-const table = document.getElementById('tempvilles');
 
+function displayTemperaturesTable(tableID,obj) {
+    let div = document.getElementById(tableID);
+    let table = temp.temperaturesHTMLTable(obj);
+    
+    div.innerHTML=table;
+}
 function displayTemperaturesChart() {
     let ctx = document.getElementById('temp-canvas').getContext('2d');
-     colors = newColors(temp.temperaturesFromTable(table).temperatures.length);
-    temperaturesChart=temp.temperaturesChartFrom(temp.temperaturesFromTable(table).temperatures,ctx,colors);
+    colors = newColors(temperaturesOfPage().temperatures.length);
+    temperaturesChart=temp.temperaturesChartFrom(temperaturesOfPage().temperatures,ctx,colors);
+    colorizeTable('tempvilles',colors);
 }
+
+
+function colorizeTable(tableID, colors) {
+    let table = document.getElementById(tableID);
+    let tBody = table.getElementsByTagName('tbody')[0];
+    let lines = tBody.getElementsByTagName('tr');
+    let i =0;
+    for ( const line of lines) {
+        let location=line.firstElementChild;
+        location.style.color=colors[i++];
+    }
+}
+
 
 
 function newColors(n) {
@@ -23,7 +42,9 @@ function newColors(n) {
 }
 
 
-function temperaturesOfPage(table) { 
+function temperaturesOfPage() { 
+    const table = document.getElementById('tempvilles');
+    console.log(table);
     let description = getDescription(table);
     let months = getMonths(table);
     let temps = getLocationTemperaturesObject(table);
@@ -64,4 +85,4 @@ function getLocationTemperaturesObject(table) {
     return temperatures;
 }
 
-export{ temperaturesOfPage ,newColors,displayTemperaturesChart}
+export{ temperaturesOfPage ,newColors,displayTemperaturesChart,displayTemperaturesTable}

@@ -2,7 +2,7 @@
 
 function renderHeadersFoldable() {
 
-   let headerList= document.getElementsByClassName("item-header");
+   let headerList= document.getElementsByTagName("h2");
 
    Array.prototype.forEach.call(headerList, function(el) {
       renderHeaderFoldable(el);
@@ -13,12 +13,18 @@ function renderHeadersFoldable() {
 
 function renderHeaderFoldable(e) {
   e.classList.remove("item-header");
-  e.classList.add("aitem-header-js");
+  e.classList.add("item-header-js");
   let contentHtml= e.innerHTML;
+  let ancher = createAnchor();
   let span = createSpan('+','item-symbol');
-
+  ancher.appendChild(span);
+  
+  ancher.appendChild(contentHtml);
+e.innerHTML=ancher;
+e.appendChild(span);
+console.log(e);
 }
-function createAnchor(params) {
+function createAnchor() {
   let a =  document.createElement('a');
   a.href='#';
   return a ;
@@ -40,7 +46,7 @@ function loadStyleSheet(styleSheetName) {
   head.appendChild(link);
 }
 
-  
+renderHeadersFoldable();
 
 
   export{renderHeadersFoldable};

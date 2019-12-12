@@ -9,10 +9,10 @@ function displayTemperaturesTable(tableID,obj) {
     
     div.innerHTML=table;
 }
-function displayTemperaturesChart() {
+function displayTemperaturesChart(t) {
     let ctx = document.getElementById('temp-canvas').getContext('2d');
-    colors = newColors(temperaturesOfPage().temperatures.length);
-    temperaturesChart=temp.temperaturesChartFrom(temperaturesOfPage().temperatures,ctx,colors);
+    colors = newColors(t.temperatures.length);
+    temperaturesChart=temp.temperaturesChartFrom(t,ctx,colors);
     colorizeTable('tempvilles',colors);
 }
 
